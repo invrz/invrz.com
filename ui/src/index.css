@@ -1,0 +1,23 @@
+*, .page_container{
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  scroll-snap-type: proximity;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+  background-color: #acacac44;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #0e0e0eaa;
+  border-radius: 8px;
+}
+
+#root{
+  transition: 400ms;
+  margin: 0;
+  padding: 0;
+}
