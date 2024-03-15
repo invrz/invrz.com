@@ -1,15 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Archivo&family=Unica+One&display=swap");
 
 body{
   width: 100%;
   min-height: 100vh;
   padding: 0;
   margin: 0;
+  background-position: center;
+  background-attachment: fixed;
+}
+.fontUnica{
+  font-family: 'Unica One';
+}
+.fontArchivo{
+  font-family: 'Archivo';
+}
+.fontPoppins{
+  font-family: 'Poppins';
+}
+.fontMontserrat{
+  font-family: 'Montserrat';
+}
+
+/*patterns modifier*/
+.gridRow{
+  flex-wrap: wrap;
+}
+
+/*
+
   background-color: #0e0e0e;
   background: 
     radial-gradient(circle at top left, #ffdab9, transparent),
     radial-gradient(circle at bottom right, #b9fff1, #ffdab9)
   ;
-  background-position: center;
-  background-attachment: fixed;
-}
+*/

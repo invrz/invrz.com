@@ -1,6 +1,61 @@
+.sideNavWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 3.5vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: #1e1e3e;
+}
+.sideNavWrapper .navLink {
+  text-align: center;
+  display: block;
+  font-size: 12px;
+  width: 2.5vw;
+  height: 2.5vw;
+  cursor: pointer;
+  border-radius: 2.5vw;
+  color: transparent;
+}
+.sideNavWrapper .navLink.hero {
+  background-color: #c2b9ff;
+}
+.sideNavWrapper .navLink.about {
+  background-color: #dae1fa;
+}
+.sideNavWrapper .navLink.services {
+  background-color: #b9fff4;
+}
+.sideNavWrapper .navLink.projects {
+  background-color: #f2ffb9;
+}
+.sideNavWrapper .navLink.outro {
+  background-color: #ffc1b9;
+}
+
+@media only screen and (max-width: 720px) {
+  .sideNavWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 4vh;
+    position: fixed;
+    z-index: 999;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    background-color: #1e1e3e;
+  }
+}
 .heroWrapper {
   background: #0e0e1e;
-  height: 70vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,29 +66,35 @@
   background: initial;
 }
 .heroWrapper .logoWrapper .title {
-  font-size: 4rem;
-  font-family: "Poppins";
+  font-family: "Unica One", sans-serif;
+  font-size: 20vw;
   padding: 12px 24px;
-  width: 100%;
   text-align: center;
   font-weight: bold;
-  background: #0e0e1e;
-  color: #ffdab9;
   border: 2px solid transparent;
 }
 .heroWrapper .logoWrapper .tag {
   font-size: 1.6rem;
-  font-family: "Poppins";
   background: initial;
   padding: 12px 24px;
-  color: #0e0e1e;
-  border: 2px solid #0e0e1e;
-  width: 100%;
   text-align: center;
   margin-top: -10px;
 }
+.heroWrapper .textWrapper {
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 4px 6px;
+  min-width: 60vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.heroWrapper .textWrapper span {
+  font-family: "Archivo", sans-serif;
+  font-size: 1.2rem;
+}
 .heroWrapper .navigationWrapper {
-  position: fixed;
+  position: sticky;
   top: 16px;
   background-color: #0e0e1e;
   width: 720px;
@@ -41,13 +102,13 @@
   border-radius: 8px;
   padding: 6px 24px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 .heroWrapper .navigationWrapper .navLink {
   color: #ffdab9;
-  font-family: "Poppins";
-  font-size: 1rem;
+  font-size: 1.2vw;
+  font-family: "Archivo", sans-serif;
 }
 .heroWrapper .navigationWrapper .navLink:hover {
   color: #b9fff1;
@@ -58,29 +119,12 @@
 }
 .heroWrapper:hover {
   background-position: 100%, 100%;
-  height: 80vh;
-}
-.heroWrapper:hover .logoWrapper {
-  background: initial;
-}
-.heroWrapper:hover .logoWrapper .title {
-  background: initial;
-  color: #b9fff1;
-  border: 2px solid #0e0e1e;
-}
-.heroWrapper:hover .logoWrapper .tag {
-  background: #0e0e1e;
-  color: #b9fff1;
-  border: 2px solid transparent;
+  height: 75vh;
 }
 
 .aboutWrapper {
   min-height: 70vh;
   padding: 6rem 0rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   transition: 200ms;
 }
 .aboutWrapper .aboutCard {
@@ -93,7 +137,6 @@
 }
 .aboutWrapper .aboutCard .aboutTitle {
   font-size: 2.4rem;
-  font-family: "Poppins";
 }
 .aboutWrapper .aboutCard .aboutText {
   font-size: 1.4rem;
@@ -102,99 +145,109 @@
 .projectsWrapper {
   min-height: 70vh;
   padding: 6rem 0rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   transition: 200ms;
 }
-.projectsWrapper .projectsCard {
-  width: 720px;
-  max-width: 80%;
-  background: transparent;
-  padding: 2rem 1rem;
-  border-radius: 8px;
-  border: 2px solid transparent;
+.projectsWrapper .projectsList {
+  list-style-type: none;
 }
-.projectsWrapper .projectsCard .projectsTitle {
-  font-size: 2.4rem;
-  font-family: "Poppins";
+.projectsWrapper .projectsList a {
+  text-decoration: none;
 }
-.projectsWrapper .projectsCard .projectsBento {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  row-gap: 16px;
-  -moz-column-gap: 16px;
-       column-gap: 16px;
+.projectsWrapper .projectsList li {
+  border-bottom: 2px solid #fafada;
+  margin: 0 0 1.6rem 0;
 }
-.projectsWrapper .projectsCard .projectsBento .projectWrapper {
-  background-color: #fafafa;
-  border-radius: 4px;
-  aspect-ratio: 1;
-  box-shadow: 3px 3px 5px #acacac;
-  width: 100%;
+.projectsWrapper .projectsList li .itemName {
+  font-size: 2rem;
+  width: -moz-max-content;
+  width: max-content;
+  display: inline-block;
 }
-.projectsWrapper .projectsCard .projectsBento .projectWrapper .projectImg {
-  display: block;
-  width: 80%;
-  margin: 20px auto 10px auto;
-}
-.projectsWrapper .projectsCard .projectsBento .projectWrapper .projectName {
-  display: block;
-  width: 80%;
-  margin: auto;
-  text-align: center;
-  font-family: "Poppins";
-  padding-bottom: 10px;
-}
-.projectsWrapper .projectsCard .projectsBento .projectWrapper:nth-child(3n) {
-  grid-column: span 2;
-  aspect-ratio: 2;
+.projectsWrapper .projectsList li .timeFrame {
+  font-size: 1.2rem;
+  padding: 0.2rem 0 0.4rem 0;
 }
 
-.socialsWrapper {
-  display: block;
-  margin: 0 auto 4px auto;
-  background-color: #0e0e1e;
-  width: 720px;
-  max-width: 80%;
-  border-radius: 8px;
-  padding: 6px 24px;
+.servicesWrapper {
+  min-height: 70vh;
+  padding: 6rem 0rem;
+  transition: 200ms;
+}
+.servicesWrapper .card {
+  -webkit-backdrop-filter: saturate(200%) contrast(160%);
+          backdrop-filter: saturate(200%) contrast(160%);
+  min-height: 40vh;
+  padding: 2rem;
+  border-radius: 2rem;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: 200ms;
 }
-.socialsWrapper .navLink {
-  color: #ffdab9;
-  font-family: "Poppins";
+.servicesWrapper .card p {
+  font-size: 1.2rem;
+}
+.servicesWrapper .card .img {
+  content: "";
+  display: block;
+  margin: 1rem 0;
+  height: 32vh;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: luminosity;
+}
+
+.outroWrapper .textGroup p {
+  font-size: 1.8rem;
+}
+.outroWrapper .buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+}
+.outroWrapper .buttonGroup a {
+  background-color: #ffdab9;
   font-size: 1rem;
-}
-.socialsWrapper .navLink:hover {
-  color: #b9fff1;
+  padding: 1rem 2rem 1rem 1rem;
+  margin: 1rem 1rem 0 0;
+  text-align: left;
+  color: #0e0e1e;
+  text-decoration: none;
   font-weight: bold;
+  border-radius: 0.4rem;
+}
+.outroWrapper .buttonGroup a:hover {
+  color: #3e3e5e;
+}
+
+.tooltipWrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: auto;
+  padding: 2rem 1rem;
+  border-radius: 0.6rem;
+  display: none;
+}
+.tooltipWrapper .tooltipHeader {
+  font-weight: bold;
+}
+.tooltipWrapper .tooltipText {
+  font-weight: normal;
+  font-size: 1.2rem;
 }
 
 @media only screen and (max-width: 720px) {
-  .projectsWrapper .projectsCard .projectsBento {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 16px;
-    -moz-column-gap: 16px;
-         column-gap: 16px;
+  .textWrapper {
+    flex-direction: column;
   }
-  .projectsWrapper .projectsCard .projectsBento .projectWrapper {
-    aspect-ratio: 1;
+  .textWrapper span {
+    padding: 1rem 0;
   }
-  .projectsWrapper .projectsCard .projectsBento .projectWrapper:nth-child(3n) {
-    grid-column: span 1;
-    aspect-ratio: 1;
-  }
-  .projectsWrapper .projectsCard .projectsBento .projectWrapper:nth-child(3n) .projectImg {
-    aspect-ratio: 1;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: 0%;
-       object-position: 0%;
+  .servicesWrapper .card {
+    margin-top: 1rem;
   }
 }/*# sourceMappingURL=home.styles.css.map */
